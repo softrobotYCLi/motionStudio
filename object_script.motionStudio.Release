@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\motor.o
+./release\servodriver.o
+./release\qcustomplot.o
+./release\csqldatabase.o
+./release\moc_mainwindow.o
+./release\moc_motor.o
+./release\moc_servodriver.o
+./release\moc_qcustomplot.o
+./release\moc_csqldatabase.o
+);
