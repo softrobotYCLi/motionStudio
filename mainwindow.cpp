@@ -75,7 +75,7 @@ bool MainWindow::customPlotInitialization()
 
     ui->widget_cur->xAxis->setTicker(timeTicker);
     ui->widget_cur->axisRect()->setupFullAxesBox();
-    ui->widget_cur->yAxis->setRange(-1,1);
+    ui->widget_cur->yAxis->setRange(0,1);
     connect( ui->widget_cur->xAxis, SIGNAL(rangeChanged(QCPRange)),  ui->widget_cur->xAxis2, SLOT(setRange(QCPRange)));
     connect( ui->widget_cur->yAxis, SIGNAL(rangeChanged(QCPRange)),  ui->widget_cur->yAxis2, SLOT(setRange(QCPRange)));
 
@@ -157,7 +157,11 @@ void MainWindow::refreshCustomPlotData()
 
 void MainWindow::getSqlResult(QSqlQuery query_dispResult_)
 {
-    QStandardItemModel  *model = new QStandardItemModel();
+    static QStandardItemModel  *model = nullptr;
+    if (model == nullptr)
+        model = new QStandardItemModel();
+    else
+        model->clear();
     model->setColumnCount(9);
     model->setHeaderData(0,Qt::Horizontal,"实验名称");
     model->setHeaderData(1,Qt::Horizontal,"实验人员姓名");
@@ -170,6 +174,7 @@ void MainWindow::getSqlResult(QSqlQuery query_dispResult_)
     model->setHeaderData(8,Qt::Horizontal,"电机时间");
     ui->tableView_2->setModel(model);
     int i = 0;
+
     while(query_dispResult_.next()){
         model->setItem(i,0,new QStandardItem(query_dispResult_.value(0).toString()));
         //设置字符颜色
@@ -245,24 +250,31 @@ void MainWindow::on_pushButton_sysPower_clicked()
 
 void MainWindow::on_pushButton_hsPower_clicked()
 {
+    static bool currentStatus = false;
     if (mSysPowerStatus_ ){
         //系统电源处于启动状态
 
-        if (!isRunning){
+        if (!isRunning && !currentStatus){
             //其它模式都没有运行
             mMotor1_.setSetSpeed(ui->doubleSpinBox_hsSpd->text().toDouble());
             mMotor1_.setAccelerate(ui->doubleSpinBox_hs_acc->text().toDouble());
 
+            currentStatus = true;
             isRunning = true;
             mUpdateTimer_.start();
             ui->pushButton_hsPower->setText("停止");
         }
         else{
-            mMotor1_.setSetSpeed(0);
-            isRunning = false;
-            mUpdateTimer_.stop();
-            ui->pushButton_hsPower->setText("启动");
-
+            if (!currentStatus){
+                QMessageBox::warning(this,"warning","请先停止其它模式");
+            }
+            else{
+                mMotor1_.setSetSpeed(0);
+                currentStatus = false;
+                isRunning = false;
+                mUpdateTimer_.stop();
+                ui->pushButton_hsPower->setText("启动");
+            }
         }
     }else{
         //系统电源处于启动状态
@@ -277,22 +289,30 @@ void MainWindow::on_doubleSpinBox_hsSpd_editingFinished()
 
 void MainWindow::on_pushButton_zxPower_clicked()
 {
+    static bool currentStatus = false;
     if (mSysPowerStatus_ ){
         //系统电源处于启动状态
-        if (!isRunning){
+        if (!isRunning && !currentStatus){
             //其它模式都没有运行
             isRunning = true;
+            currentStatus = true;
             connect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::calSin);
             mUpdateTimer_.start();
             ui->pushButton_zxPower->setText("停止");
         }
         else{
-            disconnect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::calSin);
-            mMotor1_.setSetSpeed(0);
-            isRunning = false;
-            mUpdateTimer_.stop();
-            ui->pushButton_zxPower->setText("启动");
+            if (!currentStatus){
+                QMessageBox::warning(this,"warning","请先停止其它模式");
+            }
+            else{
 
+                disconnect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::calSin);
+                mMotor1_.setSetSpeed(0);
+                isRunning = false;
+                currentStatus = false;
+                mUpdateTimer_.stop();
+                ui->pushButton_zxPower->setText("启动");
+            }
         }
     }else{
         //系统电源处于启动状态

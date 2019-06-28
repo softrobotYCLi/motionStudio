@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../build-motionStudio-Desktop_Qt_5_6_0_MinGW_32bit-Debug/icon.png</normaloff>../build-motionStudio-Desktop_Qt_5_6_0_MinGW_32bit-Debug/icon.png</iconset>
+    <normaloff>favicon-20180511024004301.ico</normaloff>favicon-20180511024004301.ico</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">

@@ -32,7 +32,7 @@ bool servoDriver::initServoDriver()
         {
             return false;
         }
-        if(!TS_Power(POWER_OFF))
+        if(!TS_Power(POWER_ON))
         {
             return false;
         }
@@ -42,7 +42,9 @@ bool servoDriver::initServoDriver()
 
 void servoDriver::ctlSpd(double spd,double acc)
 {
-    TS_Power(POWER_ON);
+//    if(!TS_Power(POWER_ON)){
+//        TS_Power(POWER_ON);
+//    }
     if (!TS_MoveVelocity(spd,acc,UPDATE_IMMEDIATE,FROM_REFERENCE))
     {
         qDebug()<<"set spd error";
@@ -73,7 +75,7 @@ void servoDriver::getVol()
     {
         qDebug()<<"get vol error";
     }
-    emit sendVol(static_cast<double>(vol)/1000);
+    emit sendVol(static_cast<double>(vol)/1000 - 5);
 }
 
 void servoDriver::getCur()
