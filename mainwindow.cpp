@@ -215,6 +215,12 @@ void MainWindow::calSin()
     }
 }
 
+void MainWindow::waitHxEnd()
+{
+    if (mMotor1_.getSpeed() < 1)
+        emit hxEnd();
+}
+
 void MainWindow::sendControlData()
 {
     emit sendMotorData(mMotor1_.getSetSpeed(),mMotor1_.getAccelerate());
@@ -296,7 +302,8 @@ void MainWindow::on_pushButton_zxPower_clicked()
             //其它模式都没有运行
             isRunning = true;
             currentStatus = true;
-            connect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::calSin);
+            mMotor1_.setSetSpeed(ui->);
+            connect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::hxEnd);
             mUpdateTimer_.start();
             ui->pushButton_zxPower->setText("停止");
         }
@@ -306,7 +313,7 @@ void MainWindow::on_pushButton_zxPower_clicked()
             }
             else{
 
-                disconnect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::calSin);
+                disconnect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::hxEnd);
                 mMotor1_.setSetSpeed(0);
                 isRunning = false;
                 currentStatus = false;
@@ -330,4 +337,40 @@ void MainWindow::on_pushButton_tabQuery_2_clicked()
     query_str.append(ui->timeEdit_end_2->time().toString("hh:mm:ss"));
     query_str.append("'");
     emit sendQueryStr(query_str);
+}
+
+void MainWindow::on_pushButton_hxPower_clicked()
+{
+    static bool currentStatus = false;
+    if (mSysPowerStatus_ ){
+        //系统电源处于启动状态
+        if (!isRunning && !currentStatus){
+            //其它模式都没有运行
+            isRunning = true;
+            currentStatus = true;
+            connect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::calSin);
+            mUpdateTimer_.start();
+//            ui->pushButton_hxPower->setText("停止");
+
+        }
+        else{
+            if (!currentStatus){
+                QMessageBox::warning(this,"warning","请先停止其它模式");
+            }
+            else{
+
+                disconnect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::calSin);
+                mMotor1_.setSetSpeed(0);
+                isRunning = false;
+                currentStatus = false;
+                mUpdateTimer_.stop();
+                ui->pushButton_zxPower->setText("启动");
+            }
+        }
+    }else{
+        //系统电源处于启动状态
+        QMessageBox::warning(this,"warning","请先打开电源");
+    }
+
+
 }

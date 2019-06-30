@@ -32,6 +32,7 @@ signals:
                       uint motorId, double cur, double vol, double setSpd,
                       double spd);
     void sendQueryStr(QString);
+    void hxEnd();
 private slots:
     void sendControlData();
 
@@ -40,6 +41,8 @@ private slots:
     void getSqlResult(QSqlQuery);
 
     void calSin();
+
+    void waitHxEnd();
 
     void updataView();
 
@@ -52,6 +55,8 @@ private slots:
     void on_pushButton_zxPower_clicked();
 
     void on_pushButton_tabQuery_2_clicked();
+
+    void on_pushButton_hxPower_clicked();
 
 private:
     Ui::MainWindow *ui;
