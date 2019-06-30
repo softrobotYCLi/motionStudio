@@ -35,6 +35,7 @@ signals:
     sendSpd(double);
     sendVol(double);
     sendCur(double);
+    sendErr(QString);
 public slots:
     void ctlSpd(double spd,double acc);
     void getMotorData();

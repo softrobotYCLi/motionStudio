@@ -451,13 +451,6 @@
            <string>滑行模式</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_17">
-             <property name="text">
-              <string>滑行模式</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="1" colspan="2">
             <widget class="QPushButton" name="pushButton_hxPower">
              <property name="text">
@@ -472,17 +465,10 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="1" colspan="2">
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_hxSpd">
-             <property name="value">
-              <double>10.000000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_19">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_17">
              <property name="text">
-              <string>滑行时间</string>
+              <string>滑行模式</string>
              </property>
             </widget>
            </item>
@@ -511,6 +497,13 @@
              </property>
             </widget>
            </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_19">
+             <property name="text">
+              <string>滑行时间</string>
+             </property>
+            </widget>
+           </item>
            <item row="2" column="2">
             <widget class="QLabel" name="label_20">
              <property name="maximumSize">
@@ -521,6 +514,13 @@
              </property>
              <property name="text">
               <string>ms</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1" colspan="2">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_hxSpd">
+             <property name="value">
+              <double>10.000000000000000</double>
              </property>
             </widget>
            </item>

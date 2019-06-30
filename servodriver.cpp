@@ -4,6 +4,7 @@ servoDriver::servoDriver(QObject *parent) : QObject(parent)
 {
     if (!initServoDriver()){
         qDebug()<<"servo init fail!";
+        emit sendErr("servo init fail!");
     }
 }
 
@@ -46,6 +47,7 @@ void servoDriver::ctlSpd(double spd,double acc)
     if (!TS_MoveVelocity(spd,acc,UPDATE_IMMEDIATE,FROM_REFERENCE))
     {
         qDebug()<<"set spd error";
+        emit sendErr("set spd error!");
     }
 }
 

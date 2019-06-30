@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_servoDriver_t {
-    QByteArrayData data[9];
-    char stringdata0[65];
+    QByteArrayData data[10];
+    char stringdata0[73];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,14 +34,15 @@ QT_MOC_LITERAL(1, 12, 7), // "sendSpd"
 QT_MOC_LITERAL(2, 20, 0), // ""
 QT_MOC_LITERAL(3, 21, 7), // "sendVol"
 QT_MOC_LITERAL(4, 29, 7), // "sendCur"
-QT_MOC_LITERAL(5, 37, 6), // "ctlSpd"
-QT_MOC_LITERAL(6, 44, 3), // "spd"
-QT_MOC_LITERAL(7, 48, 3), // "acc"
-QT_MOC_LITERAL(8, 52, 12) // "getMotorData"
+QT_MOC_LITERAL(5, 37, 7), // "sendErr"
+QT_MOC_LITERAL(6, 45, 6), // "ctlSpd"
+QT_MOC_LITERAL(7, 52, 3), // "spd"
+QT_MOC_LITERAL(8, 56, 3), // "acc"
+QT_MOC_LITERAL(9, 60, 12) // "getMotorData"
 
     },
     "servoDriver\0sendSpd\0\0sendVol\0sendCur\0"
-    "ctlSpd\0spd\0acc\0getMotorData"
+    "sendErr\0ctlSpd\0spd\0acc\0getMotorData"
 };
 #undef QT_MOC_LITERAL
 
@@ -51,29 +52,31 @@ static const uint qt_meta_data_servoDriver[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   39,    2, 0x06 /* Public */,
-       3,    1,   42,    2, 0x06 /* Public */,
-       4,    1,   45,    2, 0x06 /* Public */,
+       1,    1,   44,    2, 0x06 /* Public */,
+       3,    1,   47,    2, 0x06 /* Public */,
+       4,    1,   50,    2, 0x06 /* Public */,
+       5,    1,   53,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    2,   48,    2, 0x0a /* Public */,
-       8,    0,   53,    2, 0x0a /* Public */,
+       6,    2,   56,    2, 0x0a /* Public */,
+       9,    0,   61,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Int, QMetaType::Double,    2,
     QMetaType::Int, QMetaType::Double,    2,
     QMetaType::Int, QMetaType::Double,    2,
+    QMetaType::Int, QMetaType::QString,    2,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Double, QMetaType::Double,    6,    7,
+    QMetaType::Void, QMetaType::Double, QMetaType::Double,    7,    8,
     QMetaType::Void,
 
        0        // eod
@@ -91,8 +94,10 @@ void servoDriver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
         case 2: { int _r = _t->sendCur((*reinterpret_cast< double(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
-        case 3: _t->ctlSpd((*reinterpret_cast< double(*)>(_a[1])),(*reinterpret_cast< double(*)>(_a[2]))); break;
-        case 4: _t->getMotorData(); break;
+        case 3: { int _r = _t->sendErr((*reinterpret_cast< QString(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 4: _t->ctlSpd((*reinterpret_cast< double(*)>(_a[1])),(*reinterpret_cast< double(*)>(_a[2]))); break;
+        case 5: _t->getMotorData(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -116,6 +121,13 @@ void servoDriver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
             typedef int (servoDriver::*_t)(double );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&servoDriver::sendCur)) {
                 *result = 2;
+                return;
+            }
+        }
+        {
+            typedef int (servoDriver::*_t)(QString );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&servoDriver::sendErr)) {
+                *result = 3;
                 return;
             }
         }
@@ -147,13 +159,13 @@ int servoDriver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }
@@ -182,6 +194,15 @@ int servoDriver::sendCur(double _t1)
     int _t0 = int();
     void *_a[] = { const_cast<void*>(reinterpret_cast<const void*>(&_t0)), const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
+    return _t0;
+}
+
+// SIGNAL 3
+int servoDriver::sendErr(QString _t1)
+{
+    int _t0 = int();
+    void *_a[] = { const_cast<void*>(reinterpret_cast<const void*>(&_t0)), const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
     return _t0;
 }
 QT_END_MOC_NAMESPACE

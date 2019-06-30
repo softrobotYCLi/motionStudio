@@ -48,6 +48,8 @@ private slots:
 
     void updataView();
 
+    void printErrorText(QString);
+
     void on_pushButton_sysPower_clicked();
 
     void on_pushButton_hsPower_clicked();

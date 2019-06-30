@@ -39,6 +39,8 @@ MainWindow::MainWindow(QWidget *parent) :
     pThreadSQL->start();
 
     ui->dateEdit_queryData_2->setDate(QDate::currentDate());
+    connect(pDriver_,&servoDriver::sendErr,this,&MainWindow::printErrorText);
+
 }
 
 MainWindow::~MainWindow()
@@ -259,7 +261,12 @@ void MainWindow::updataView()
 
     emit sendDataToDB(ui->lineEdit_expName->text(),ui->lineEdit_personName->text(),ui->lineEdit_expNo->text(),
                                mMotor1_.getID(),mMotor1_.getVoltage(),mMotor1_.getCurrent(),mMotor1_.getSetSpeed(),
-                               mMotor1_.getSpeed());
+                      mMotor1_.getSpeed());
+}
+
+void MainWindow::printErrorText(QString str)
+{
+    statusBar()->showMessage(str,2000);
 }
 
 
@@ -375,10 +382,9 @@ void MainWindow::on_pushButton_hxPower_clicked()
             connect(this,&MainWindow::hxEnd,this,&MainWindow::refreshHxMode);
             mUpdateTimer_.start();
             ui->pushButton_hxPower->setText("停止");
-
+            mMotor1_.setSetSpeed(ui->doubleSpinBox_hxSpd->text().toDouble());
             mCurTime = QTime::currentTime().msecsSinceStartOfDay();
             mHxSection = false;
-
         }
         else{
             if (!currentStatus){
