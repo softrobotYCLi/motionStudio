@@ -42,7 +42,7 @@ public:
     QGridLayout *gridLayout;
     QTabWidget *tabWidget;
     QWidget *tab;
-    QGridLayout *gridLayout_2;
+    QGridLayout *gridLayout_8;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_3;
     QLineEdit *lineEdit_personName;
@@ -63,6 +63,11 @@ public:
     QDoubleSpinBox *doubleSpinBox_zxW;
     QLabel *label_16;
     QDoubleSpinBox *doubleSpinBox_zxdleta;
+    QGroupBox *groupBox_6;
+    QGridLayout *gridLayout_6;
+    QCustomPlot *widget_dc;
+    QCustomPlot *widget_cur;
+    QCustomPlot *widget_spd;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_4;
     QPushButton *pushButton_hsPower;
@@ -83,11 +88,15 @@ public:
     QLineEdit *lineEdit_Spd;
     QLabel *label_11;
     QLineEdit *lineEdit_wate;
-    QGroupBox *groupBox_6;
-    QGridLayout *gridLayout_6;
-    QCustomPlot *widget_dc;
-    QCustomPlot *widget_cur;
-    QCustomPlot *widget_spd;
+    QGroupBox *groupBox_3;
+    QGridLayout *gridLayout_2;
+    QLabel *label_17;
+    QPushButton *pushButton_hxPower;
+    QLabel *label_18;
+    QDoubleSpinBox *doubleSpinBox_hxSpd;
+    QLabel *label_19;
+    QLineEdit *lineEdit_hxTime;
+    QLabel *label_20;
     QWidget *tab_2;
     QGridLayout *gridLayout_28;
     QGroupBox *groupBox_14;
@@ -116,7 +125,7 @@ public:
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(1189, 574);
         QIcon icon;
-        icon.addFile(QStringLiteral("../build-motionStudio-Desktop_Qt_5_6_0_MinGW_32bit-Debug/icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral("favicon-20180511024004301.ico"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
@@ -128,10 +137,10 @@ public:
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
-        gridLayout_2 = new QGridLayout(tab);
-        gridLayout_2->setSpacing(6);
-        gridLayout_2->setContentsMargins(11, 11, 11, 11);
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        gridLayout_8 = new QGridLayout(tab);
+        gridLayout_8->setSpacing(6);
+        gridLayout_8->setContentsMargins(11, 11, 11, 11);
+        gridLayout_8->setObjectName(QStringLiteral("gridLayout_8"));
         groupBox = new QGroupBox(tab);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         gridLayout_3 = new QGridLayout(groupBox);
@@ -191,7 +200,7 @@ public:
         gridLayout_3->addWidget(label_4, 3, 0, 1, 1);
 
 
-        gridLayout_2->addWidget(groupBox, 0, 0, 1, 1);
+        gridLayout_8->addWidget(groupBox, 0, 0, 1, 1);
 
         groupBox_4 = new QGroupBox(tab);
         groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
@@ -243,7 +252,40 @@ public:
         gridLayout_7->addWidget(doubleSpinBox_zxdleta, 3, 1, 1, 1);
 
 
-        gridLayout_2->addWidget(groupBox_4, 0, 1, 1, 1);
+        gridLayout_8->addWidget(groupBox_4, 0, 1, 1, 1);
+
+        groupBox_6 = new QGroupBox(tab);
+        groupBox_6->setObjectName(QStringLiteral("groupBox_6"));
+        gridLayout_6 = new QGridLayout(groupBox_6);
+        gridLayout_6->setSpacing(6);
+        gridLayout_6->setContentsMargins(11, 11, 11, 11);
+        gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
+        widget_dc = new QCustomPlot(groupBox_6);
+        widget_dc->setObjectName(QStringLiteral("widget_dc"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(widget_dc->sizePolicy().hasHeightForWidth());
+        widget_dc->setSizePolicy(sizePolicy1);
+
+        gridLayout_6->addWidget(widget_dc, 0, 0, 1, 1);
+
+        widget_cur = new QCustomPlot(groupBox_6);
+        widget_cur->setObjectName(QStringLiteral("widget_cur"));
+        sizePolicy1.setHeightForWidth(widget_cur->sizePolicy().hasHeightForWidth());
+        widget_cur->setSizePolicy(sizePolicy1);
+
+        gridLayout_6->addWidget(widget_cur, 1, 0, 1, 1);
+
+        widget_spd = new QCustomPlot(groupBox_6);
+        widget_spd->setObjectName(QStringLiteral("widget_spd"));
+        sizePolicy1.setHeightForWidth(widget_spd->sizePolicy().hasHeightForWidth());
+        widget_spd->setSizePolicy(sizePolicy1);
+
+        gridLayout_6->addWidget(widget_spd, 2, 0, 1, 1);
+
+
+        gridLayout_8->addWidget(groupBox_6, 0, 2, 3, 1);
 
         groupBox_2 = new QGroupBox(tab);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
@@ -289,7 +331,7 @@ public:
         gridLayout_4->addWidget(label_12, 0, 0, 1, 1);
 
 
-        gridLayout_2->addWidget(groupBox_2, 1, 0, 1, 1);
+        gridLayout_8->addWidget(groupBox_2, 1, 0, 1, 1);
 
         groupBox_5 = new QGroupBox(tab);
         groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
@@ -304,11 +346,12 @@ public:
 
         lineEdit_vol = new QLineEdit(groupBox_5);
         lineEdit_vol->setObjectName(QStringLiteral("lineEdit_vol"));
-        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(lineEdit_vol->sizePolicy().hasHeightForWidth());
-        lineEdit_vol->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(lineEdit_vol->sizePolicy().hasHeightForWidth());
+        lineEdit_vol->setSizePolicy(sizePolicy2);
+        lineEdit_vol->setFrame(false);
         lineEdit_vol->setAlignment(Qt::AlignCenter);
         lineEdit_vol->setReadOnly(true);
 
@@ -321,8 +364,9 @@ public:
 
         lineEdit_cur = new QLineEdit(groupBox_5);
         lineEdit_cur->setObjectName(QStringLiteral("lineEdit_cur"));
-        sizePolicy1.setHeightForWidth(lineEdit_cur->sizePolicy().hasHeightForWidth());
-        lineEdit_cur->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(lineEdit_cur->sizePolicy().hasHeightForWidth());
+        lineEdit_cur->setSizePolicy(sizePolicy2);
+        lineEdit_cur->setFrame(false);
         lineEdit_cur->setAlignment(Qt::AlignCenter);
         lineEdit_cur->setReadOnly(true);
 
@@ -335,8 +379,9 @@ public:
 
         lineEdit_setSpd = new QLineEdit(groupBox_5);
         lineEdit_setSpd->setObjectName(QStringLiteral("lineEdit_setSpd"));
-        sizePolicy1.setHeightForWidth(lineEdit_setSpd->sizePolicy().hasHeightForWidth());
-        lineEdit_setSpd->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(lineEdit_setSpd->sizePolicy().hasHeightForWidth());
+        lineEdit_setSpd->setSizePolicy(sizePolicy2);
+        lineEdit_setSpd->setFrame(false);
         lineEdit_setSpd->setAlignment(Qt::AlignCenter);
         lineEdit_setSpd->setReadOnly(true);
 
@@ -349,8 +394,9 @@ public:
 
         lineEdit_Spd = new QLineEdit(groupBox_5);
         lineEdit_Spd->setObjectName(QStringLiteral("lineEdit_Spd"));
-        sizePolicy1.setHeightForWidth(lineEdit_Spd->sizePolicy().hasHeightForWidth());
-        lineEdit_Spd->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(lineEdit_Spd->sizePolicy().hasHeightForWidth());
+        lineEdit_Spd->setSizePolicy(sizePolicy2);
+        lineEdit_Spd->setFrame(false);
         lineEdit_Spd->setAlignment(Qt::AlignCenter);
         lineEdit_Spd->setReadOnly(true);
 
@@ -363,48 +409,67 @@ public:
 
         lineEdit_wate = new QLineEdit(groupBox_5);
         lineEdit_wate->setObjectName(QStringLiteral("lineEdit_wate"));
-        sizePolicy1.setHeightForWidth(lineEdit_wate->sizePolicy().hasHeightForWidth());
-        lineEdit_wate->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(lineEdit_wate->sizePolicy().hasHeightForWidth());
+        lineEdit_wate->setSizePolicy(sizePolicy2);
+        lineEdit_wate->setFrame(false);
         lineEdit_wate->setAlignment(Qt::AlignCenter);
         lineEdit_wate->setReadOnly(true);
 
         gridLayout_5->addWidget(lineEdit_wate, 4, 1, 1, 1);
 
 
-        gridLayout_2->addWidget(groupBox_5, 1, 1, 1, 1);
+        gridLayout_8->addWidget(groupBox_5, 1, 1, 2, 1);
 
-        groupBox_6 = new QGroupBox(tab);
-        groupBox_6->setObjectName(QStringLiteral("groupBox_6"));
-        gridLayout_6 = new QGridLayout(groupBox_6);
-        gridLayout_6->setSpacing(6);
-        gridLayout_6->setContentsMargins(11, 11, 11, 11);
-        gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
-        widget_dc = new QCustomPlot(groupBox_6);
-        widget_dc->setObjectName(QStringLiteral("widget_dc"));
-        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(widget_dc->sizePolicy().hasHeightForWidth());
-        widget_dc->setSizePolicy(sizePolicy2);
+        groupBox_3 = new QGroupBox(tab);
+        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        gridLayout_2 = new QGridLayout(groupBox_3);
+        gridLayout_2->setSpacing(6);
+        gridLayout_2->setContentsMargins(11, 11, 11, 11);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        label_17 = new QLabel(groupBox_3);
+        label_17->setObjectName(QStringLiteral("label_17"));
 
-        gridLayout_6->addWidget(widget_dc, 0, 0, 1, 1);
+        gridLayout_2->addWidget(label_17, 0, 0, 1, 1);
 
-        widget_cur = new QCustomPlot(groupBox_6);
-        widget_cur->setObjectName(QStringLiteral("widget_cur"));
-        sizePolicy2.setHeightForWidth(widget_cur->sizePolicy().hasHeightForWidth());
-        widget_cur->setSizePolicy(sizePolicy2);
+        pushButton_hxPower = new QPushButton(groupBox_3);
+        pushButton_hxPower->setObjectName(QStringLiteral("pushButton_hxPower"));
 
-        gridLayout_6->addWidget(widget_cur, 1, 0, 1, 1);
+        gridLayout_2->addWidget(pushButton_hxPower, 0, 1, 1, 2);
 
-        widget_spd = new QCustomPlot(groupBox_6);
-        widget_spd->setObjectName(QStringLiteral("widget_spd"));
-        sizePolicy2.setHeightForWidth(widget_spd->sizePolicy().hasHeightForWidth());
-        widget_spd->setSizePolicy(sizePolicy2);
+        label_18 = new QLabel(groupBox_3);
+        label_18->setObjectName(QStringLiteral("label_18"));
 
-        gridLayout_6->addWidget(widget_spd, 2, 0, 1, 1);
+        gridLayout_2->addWidget(label_18, 1, 0, 1, 1);
+
+        doubleSpinBox_hxSpd = new QDoubleSpinBox(groupBox_3);
+        doubleSpinBox_hxSpd->setObjectName(QStringLiteral("doubleSpinBox_hxSpd"));
+        doubleSpinBox_hxSpd->setValue(10);
+
+        gridLayout_2->addWidget(doubleSpinBox_hxSpd, 1, 1, 1, 2);
+
+        label_19 = new QLabel(groupBox_3);
+        label_19->setObjectName(QStringLiteral("label_19"));
+
+        gridLayout_2->addWidget(label_19, 2, 0, 1, 1);
+
+        lineEdit_hxTime = new QLineEdit(groupBox_3);
+        lineEdit_hxTime->setObjectName(QStringLiteral("lineEdit_hxTime"));
+        sizePolicy2.setHeightForWidth(lineEdit_hxTime->sizePolicy().hasHeightForWidth());
+        lineEdit_hxTime->setSizePolicy(sizePolicy2);
+        lineEdit_hxTime->setMaximumSize(QSize(60, 16777215));
+        lineEdit_hxTime->setFrame(false);
+        lineEdit_hxTime->setReadOnly(true);
+
+        gridLayout_2->addWidget(lineEdit_hxTime, 2, 1, 1, 1);
+
+        label_20 = new QLabel(groupBox_3);
+        label_20->setObjectName(QStringLiteral("label_20"));
+        label_20->setMaximumSize(QSize(20, 16777215));
+
+        gridLayout_2->addWidget(label_20, 2, 2, 1, 1);
 
 
-        gridLayout_2->addWidget(groupBox_6, 0, 2, 2, 1);
+        gridLayout_8->addWidget(groupBox_3, 2, 0, 1, 1);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -563,6 +628,7 @@ public:
         label_14->setText(QApplication::translate("MainWindow", "K", 0));
         label_15->setText(QApplication::translate("MainWindow", "W", 0));
         label_16->setText(QApplication::translate("MainWindow", "delta", 0));
+        groupBox_6->setTitle(QApplication::translate("MainWindow", "\346\263\242\345\275\242\346\230\276\347\244\272", 0));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "\346\201\222\351\200\237\346\250\241\345\274\217", 0));
         pushButton_hsPower->setText(QApplication::translate("MainWindow", "\345\220\257\345\212\250", 0));
         label_5->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256\351\200\237\345\272\246", 0));
@@ -574,7 +640,12 @@ public:
         label_9->setText(QApplication::translate("MainWindow", "\346\234\237\346\234\233\351\200\237\345\272\246", 0));
         label_10->setText(QApplication::translate("MainWindow", "\345\256\236\346\227\266\351\200\237\345\272\246", 0));
         label_11->setText(QApplication::translate("MainWindow", "\347\224\265\346\234\272\345\212\237\347\216\207", 0));
-        groupBox_6->setTitle(QApplication::translate("MainWindow", "\346\263\242\345\275\242\346\230\276\347\244\272", 0));
+        groupBox_3->setTitle(QApplication::translate("MainWindow", "\346\273\221\350\241\214\346\250\241\345\274\217", 0));
+        label_17->setText(QApplication::translate("MainWindow", "\346\273\221\350\241\214\346\250\241\345\274\217", 0));
+        pushButton_hxPower->setText(QApplication::translate("MainWindow", "\345\220\257\345\212\250", 0));
+        label_18->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256\351\200\237\345\272\246", 0));
+        label_19->setText(QApplication::translate("MainWindow", "\346\273\221\350\241\214\346\227\266\351\227\264", 0));
+        label_20->setText(QApplication::translate("MainWindow", "ms", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "\347\224\265\346\234\2721", 0));
         groupBox_14->setTitle(QApplication::translate("MainWindow", "\346\237\245\350\257\242\347\273\223\346\236\234", 0));
         groupBox_13->setTitle(QApplication::translate("MainWindow", "\351\200\211\346\213\251\346\227\266\351\227\264", 0));

@@ -22,6 +22,13 @@ public:
     void getVol();
     void getCur();
 
+    void setMotorPower(bool status){
+        if (status)
+            TS_Power(POWER_ON);
+        else
+            TS_Power(POWER_OFF);
+    }
+
 private:
 
 signals:

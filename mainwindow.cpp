@@ -217,9 +217,32 @@ void MainWindow::calSin()
 
 void MainWindow::waitHxEnd()
 {
-    if (mMotor1_.getSpeed() < 1)
-        emit hxEnd();
+
+    int timeNow = QTime::currentTime().msecsSinceStartOfDay();
+    ui->lineEdit_hxTime->setText(QString::number(timeNow - mCurTime));
+    if (!mHxSection){
+        if (mMotor1_.getSpeed() > mMotor1_.getSetSpeed()*0.95){
+            pDriver_->setMotorPower(false);
+
+            mHxSection = true;
+        }
+    }
+    else{
+        if (mMotor1_.getSpeed() < 1){
+            pDriver_->setMotorPower(true);
+            mHxSection = false;
+            mCurTime = 0;
+            emit hxEnd();
+        }
+    }
 }
+
+void MainWindow::refreshHxMode()
+{
+
+    on_pushButton_hxPower_clicked();
+}
+
 
 void MainWindow::sendControlData()
 {
@@ -302,7 +325,7 @@ void MainWindow::on_pushButton_zxPower_clicked()
             //其它模式都没有运行
             isRunning = true;
             currentStatus = true;
-            mMotor1_.setSetSpeed(ui->);
+//            mMotor1_.setSetSpeed( doubleSpinBox_hxSpd);
             connect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::hxEnd);
             mUpdateTimer_.start();
             ui->pushButton_zxPower->setText("停止");
@@ -348,9 +371,13 @@ void MainWindow::on_pushButton_hxPower_clicked()
             //其它模式都没有运行
             isRunning = true;
             currentStatus = true;
-            connect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::calSin);
+            connect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::waitHxEnd);
+            connect(this,&MainWindow::hxEnd,this,&MainWindow::refreshHxMode);
             mUpdateTimer_.start();
-//            ui->pushButton_hxPower->setText("停止");
+            ui->pushButton_hxPower->setText("停止");
+
+            mCurTime = QTime::currentTime().msecsSinceStartOfDay();
+            mHxSection = false;
 
         }
         else{
@@ -358,13 +385,16 @@ void MainWindow::on_pushButton_hxPower_clicked()
                 QMessageBox::warning(this,"warning","请先停止其它模式");
             }
             else{
-
-                disconnect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::calSin);
+                pDriver_->setMotorPower(true);
+                mHxSection = false;
+                mCurTime = 0;
+                disconnect(&mUpdateTimer_,&QTimer::timeout,this,&MainWindow::waitHxEnd);
+                disconnect(this,&MainWindow::hxEnd,this,&MainWindow::refreshHxMode);
                 mMotor1_.setSetSpeed(0);
                 isRunning = false;
                 currentStatus = false;
                 mUpdateTimer_.stop();
-                ui->pushButton_zxPower->setText("启动");
+                ui->pushButton_hxPower->setText("启动");
             }
         }
     }else{
@@ -374,3 +404,5 @@ void MainWindow::on_pushButton_hxPower_clicked()
 
 
 }
+
+

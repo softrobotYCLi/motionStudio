@@ -44,6 +44,8 @@ private slots:
 
     void waitHxEnd();
 
+    void refreshHxMode();
+
     void updataView();
 
     void on_pushButton_sysPower_clicked();
@@ -58,6 +60,8 @@ private slots:
 
     void on_pushButton_hxPower_clicked();
 
+
+
 private:
     Ui::MainWindow *ui;
     Motor mMotor1_;
@@ -68,6 +72,8 @@ private:
     QThread *pThreadTML;
     cSqlDataBase *pSqlDataBase;
     QThread *pThreadSQL;
+    int mCurTime;
+    bool mHxSection;
 };
 
 #endif // MAINWINDOW_H

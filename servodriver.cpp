@@ -42,9 +42,7 @@ bool servoDriver::initServoDriver()
 
 void servoDriver::ctlSpd(double spd,double acc)
 {
-//    if(!TS_Power(POWER_ON)){
-//        TS_Power(POWER_ON);
-//    }
+
     if (!TS_MoveVelocity(spd,acc,UPDATE_IMMEDIATE,FROM_REFERENCE))
     {
         qDebug()<<"set spd error";
