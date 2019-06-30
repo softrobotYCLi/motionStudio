@@ -612,10 +612,10 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "HDUmotionStudio", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "\350\213\261\350\201\224\347\247\221\346\212\200\347\224\265\346\234\272\346\216\247\345\210\266\345\256\236\351\252\214\350\275\257\344\273\266", 0));
         groupBox->setTitle(QApplication::translate("MainWindow", "\345\256\236\351\252\214\344\277\241\346\201\257", 0));
         lineEdit_personName->setText(QApplication::translate("MainWindow", "LYC", 0));
-        lineEdit_expName->setText(QApplication::translate("MainWindow", "TEST", 0));
+        lineEdit_expName->setText(QApplication::translate("MainWindow", "\350\213\261\350\201\224\347\247\221\346\212\200", 0));
         label->setText(QApplication::translate("MainWindow", "\345\256\236\351\252\214\345\220\215\347\247\260", 0));
         label_3->setText(QApplication::translate("MainWindow", "\345\256\236\351\252\214\347\274\226\345\217\267", 0));
         label_2->setText(QApplication::translate("MainWindow", "\345\256\236\351\252\214\344\272\272\345\221\230", 0));
@@ -636,15 +636,21 @@ public:
         label_12->setText(QApplication::translate("MainWindow", "\346\201\222\351\200\237\346\250\241\345\274\217", 0));
         groupBox_5->setTitle(QApplication::translate("MainWindow", "\346\225\260\346\215\256\346\230\276\347\244\272", 0));
         label_7->setText(QApplication::translate("MainWindow", "\347\224\265\346\234\272\347\224\265\345\216\213", 0));
+        lineEdit_vol->setText(QApplication::translate("MainWindow", "0", 0));
         label_8->setText(QApplication::translate("MainWindow", "\347\224\265\346\234\272\347\224\265\346\265\201", 0));
+        lineEdit_cur->setText(QApplication::translate("MainWindow", "0", 0));
         label_9->setText(QApplication::translate("MainWindow", "\346\234\237\346\234\233\351\200\237\345\272\246", 0));
+        lineEdit_setSpd->setText(QApplication::translate("MainWindow", "0", 0));
         label_10->setText(QApplication::translate("MainWindow", "\345\256\236\346\227\266\351\200\237\345\272\246", 0));
+        lineEdit_Spd->setText(QApplication::translate("MainWindow", "0", 0));
         label_11->setText(QApplication::translate("MainWindow", "\347\224\265\346\234\272\345\212\237\347\216\207", 0));
+        lineEdit_wate->setText(QApplication::translate("MainWindow", "0", 0));
         groupBox_3->setTitle(QApplication::translate("MainWindow", "\346\273\221\350\241\214\346\250\241\345\274\217", 0));
         label_17->setText(QApplication::translate("MainWindow", "\346\273\221\350\241\214\346\250\241\345\274\217", 0));
         pushButton_hxPower->setText(QApplication::translate("MainWindow", "\345\220\257\345\212\250", 0));
         label_18->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256\351\200\237\345\272\246", 0));
         label_19->setText(QApplication::translate("MainWindow", "\346\273\221\350\241\214\346\227\266\351\227\264", 0));
+        lineEdit_hxTime->setText(QApplication::translate("MainWindow", "0", 0));
         label_20->setText(QApplication::translate("MainWindow", "ms", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "\347\224\265\346\234\2721", 0));
         groupBox_14->setTitle(QApplication::translate("MainWindow", "\346\237\245\350\257\242\347\273\223\346\236\234", 0));

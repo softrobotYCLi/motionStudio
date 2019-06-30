@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[24];
-    char stringdata0[343];
+    QByteArrayData data[28];
+    char stringdata0[403];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,29 +42,35 @@ QT_MOC_LITERAL(9, 73, 3), // "vol"
 QT_MOC_LITERAL(10, 77, 6), // "setSpd"
 QT_MOC_LITERAL(11, 84, 3), // "spd"
 QT_MOC_LITERAL(12, 88, 12), // "sendQueryStr"
-QT_MOC_LITERAL(13, 101, 15), // "sendControlData"
-QT_MOC_LITERAL(14, 117, 21), // "refreshCustomPlotData"
-QT_MOC_LITERAL(15, 139, 12), // "getSqlResult"
-QT_MOC_LITERAL(16, 152, 9), // "QSqlQuery"
-QT_MOC_LITERAL(17, 162, 6), // "calSin"
-QT_MOC_LITERAL(18, 169, 10), // "updataView"
-QT_MOC_LITERAL(19, 180, 30), // "on_pushButton_sysPower_clicked"
-QT_MOC_LITERAL(20, 211, 29), // "on_pushButton_hsPower_clicked"
-QT_MOC_LITERAL(21, 241, 38), // "on_doubleSpinBox_hsSpd_editin..."
-QT_MOC_LITERAL(22, 280, 29), // "on_pushButton_zxPower_clicked"
-QT_MOC_LITERAL(23, 310, 32) // "on_pushButton_tabQuery_2_clicked"
+QT_MOC_LITERAL(13, 101, 5), // "hxEnd"
+QT_MOC_LITERAL(14, 107, 15), // "sendControlData"
+QT_MOC_LITERAL(15, 123, 21), // "refreshCustomPlotData"
+QT_MOC_LITERAL(16, 145, 12), // "getSqlResult"
+QT_MOC_LITERAL(17, 158, 9), // "QSqlQuery"
+QT_MOC_LITERAL(18, 168, 6), // "calSin"
+QT_MOC_LITERAL(19, 175, 9), // "waitHxEnd"
+QT_MOC_LITERAL(20, 185, 13), // "refreshHxMode"
+QT_MOC_LITERAL(21, 199, 10), // "updataView"
+QT_MOC_LITERAL(22, 210, 30), // "on_pushButton_sysPower_clicked"
+QT_MOC_LITERAL(23, 241, 29), // "on_pushButton_hsPower_clicked"
+QT_MOC_LITERAL(24, 271, 38), // "on_doubleSpinBox_hsSpd_editin..."
+QT_MOC_LITERAL(25, 310, 29), // "on_pushButton_zxPower_clicked"
+QT_MOC_LITERAL(26, 340, 32), // "on_pushButton_tabQuery_2_clicked"
+QT_MOC_LITERAL(27, 373, 29) // "on_pushButton_hxPower_clicked"
 
     },
     "MainWindow\0sendMotorData\0\0sendDataToDB\0"
     "expName\0usrName\0expNo\0motorId\0cur\0vol\0"
-    "setSpd\0spd\0sendQueryStr\0sendControlData\0"
-    "refreshCustomPlotData\0getSqlResult\0"
-    "QSqlQuery\0calSin\0updataView\0"
+    "setSpd\0spd\0sendQueryStr\0hxEnd\0"
+    "sendControlData\0refreshCustomPlotData\0"
+    "getSqlResult\0QSqlQuery\0calSin\0waitHxEnd\0"
+    "refreshHxMode\0updataView\0"
     "on_pushButton_sysPower_clicked\0"
     "on_pushButton_hsPower_clicked\0"
     "on_doubleSpinBox_hsSpd_editingFinished\0"
     "on_pushButton_zxPower_clicked\0"
-    "on_pushButton_tabQuery_2_clicked"
+    "on_pushButton_tabQuery_2_clicked\0"
+    "on_pushButton_hxPower_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -74,39 +80,47 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      17,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,   79,    2, 0x06 /* Public */,
-       3,    8,   84,    2, 0x06 /* Public */,
-      12,    1,  101,    2, 0x06 /* Public */,
+       1,    2,   99,    2, 0x06 /* Public */,
+       3,    8,  104,    2, 0x06 /* Public */,
+      12,    1,  121,    2, 0x06 /* Public */,
+      13,    0,  124,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      13,    0,  104,    2, 0x08 /* Private */,
-      14,    0,  105,    2, 0x08 /* Private */,
-      15,    1,  106,    2, 0x08 /* Private */,
-      17,    0,  109,    2, 0x08 /* Private */,
-      18,    0,  110,    2, 0x08 /* Private */,
-      19,    0,  111,    2, 0x08 /* Private */,
-      20,    0,  112,    2, 0x08 /* Private */,
-      21,    0,  113,    2, 0x08 /* Private */,
-      22,    0,  114,    2, 0x08 /* Private */,
-      23,    0,  115,    2, 0x08 /* Private */,
+      14,    0,  125,    2, 0x08 /* Private */,
+      15,    0,  126,    2, 0x08 /* Private */,
+      16,    1,  127,    2, 0x08 /* Private */,
+      18,    0,  130,    2, 0x08 /* Private */,
+      19,    0,  131,    2, 0x08 /* Private */,
+      20,    0,  132,    2, 0x08 /* Private */,
+      21,    0,  133,    2, 0x08 /* Private */,
+      22,    0,  134,    2, 0x08 /* Private */,
+      23,    0,  135,    2, 0x08 /* Private */,
+      24,    0,  136,    2, 0x08 /* Private */,
+      25,    0,  137,    2, 0x08 /* Private */,
+      26,    0,  138,    2, 0x08 /* Private */,
+      27,    0,  139,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Double, QMetaType::Double,    2,    2,
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::UInt, QMetaType::Double, QMetaType::Double, QMetaType::Double, QMetaType::Double,    4,    5,    6,    7,    8,    9,   10,   11,
     QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 16,    2,
+    QMetaType::Void, 0x80000000 | 17,    2,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -127,16 +141,20 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->sendMotorData((*reinterpret_cast< double(*)>(_a[1])),(*reinterpret_cast< double(*)>(_a[2]))); break;
         case 1: _t->sendDataToDB((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])),(*reinterpret_cast< uint(*)>(_a[4])),(*reinterpret_cast< double(*)>(_a[5])),(*reinterpret_cast< double(*)>(_a[6])),(*reinterpret_cast< double(*)>(_a[7])),(*reinterpret_cast< double(*)>(_a[8]))); break;
         case 2: _t->sendQueryStr((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 3: _t->sendControlData(); break;
-        case 4: _t->refreshCustomPlotData(); break;
-        case 5: _t->getSqlResult((*reinterpret_cast< QSqlQuery(*)>(_a[1]))); break;
-        case 6: _t->calSin(); break;
-        case 7: _t->updataView(); break;
-        case 8: _t->on_pushButton_sysPower_clicked(); break;
-        case 9: _t->on_pushButton_hsPower_clicked(); break;
-        case 10: _t->on_doubleSpinBox_hsSpd_editingFinished(); break;
-        case 11: _t->on_pushButton_zxPower_clicked(); break;
-        case 12: _t->on_pushButton_tabQuery_2_clicked(); break;
+        case 3: _t->hxEnd(); break;
+        case 4: _t->sendControlData(); break;
+        case 5: _t->refreshCustomPlotData(); break;
+        case 6: _t->getSqlResult((*reinterpret_cast< QSqlQuery(*)>(_a[1]))); break;
+        case 7: _t->calSin(); break;
+        case 8: _t->waitHxEnd(); break;
+        case 9: _t->refreshHxMode(); break;
+        case 10: _t->updataView(); break;
+        case 11: _t->on_pushButton_sysPower_clicked(); break;
+        case 12: _t->on_pushButton_hsPower_clicked(); break;
+        case 13: _t->on_doubleSpinBox_hsSpd_editingFinished(); break;
+        case 14: _t->on_pushButton_zxPower_clicked(); break;
+        case 15: _t->on_pushButton_tabQuery_2_clicked(); break;
+        case 16: _t->on_pushButton_hxPower_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -160,6 +178,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             typedef void (MainWindow::*_t)(QString );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::sendQueryStr)) {
                 *result = 2;
+                return;
+            }
+        }
+        {
+            typedef void (MainWindow::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::hxEnd)) {
+                *result = 3;
                 return;
             }
         }
@@ -191,13 +216,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 17)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 17;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 17)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 13;
+        _id -= 17;
     }
     return _id;
 }
@@ -221,5 +246,11 @@ void MainWindow::sendQueryStr(QString _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
+void MainWindow::hxEnd()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE
